@@ -1,0 +1,14 @@
+bin/
+obj/
+artifacts/
+.vs/
+.vscode/
+*.user
+*.suo
+*.pdb
+*.log
+*.tmp
+*.part
+test-photos/
+src/MediaTidy/Models/*.onnx
+

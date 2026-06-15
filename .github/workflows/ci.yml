@@ -1,0 +1,38 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Cache bundled recognition model
+        uses: actions/cache@v4
+        with:
+          path: src/MediaTidy/Models/clip-vision-int8.onnx
+          key: clip-vision-int8-583fd111
+
+      - name: Download bundled recognition model
+        shell: pwsh
+        run: ./scripts/download-model.ps1
+
+      - name: Restore
+        run: dotnet restore MediaTidy.sln
+
+      - name: Build
+        run: dotnet build MediaTidy.sln -c Release --no-restore
+
+      - name: Smoke test
+        run: dotnet run --project tests/MediaTidy.SmokeTests/MediaTidy.SmokeTests.csproj -c Release --no-build
+
