@@ -20,9 +20,11 @@ MediaTidy never deletes files automatically. You choose what to keep, quarantine
 
 ## Download
 
-Download `MediaTidy.exe` and `SHA256SUMS.txt` from the [latest GitHub Release](https://github.com/burletov/MediaTidy/releases/latest). The app is portable and does not require installation.
+Download `MediaTidy.exe` from the [latest GitHub Release](https://github.com/burletov/MediaTidy/releases/latest). The app is portable and does not require installation.
 
-The executable is not code-signed yet and may trigger Windows SmartScreen. Download it only from `burletov/MediaTidy` and verify the SHA-256 checksum if needed.
+`SHA256SUMS.txt` is optional. It is provided only for integrity checks, so you can verify that `MediaTidy.exe` was not corrupted during download and matches the release file.
+
+The executable is not code-signed yet and may trigger Windows SmartScreen. Download it only from `burletov/MediaTidy` and verify the SHA-256 checksum against `SHA256SUMS.txt` if needed.
 
 ## VK import
 

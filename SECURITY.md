@@ -12,7 +12,6 @@ Use GitHub's private security advisory for this repository when available. For o
 
 ## Downloads
 
-Official binaries are published only under `burletov/MediaTidy` in GitHub Releases. Verify `MediaTidy.exe` using the accompanying `SHA256SUMS.txt`.
+Official binaries are published only under `burletov/MediaTidy` in GitHub Releases. `SHA256SUMS.txt` is provided for optional integrity checks of `MediaTidy.exe`.
 
 The application is not currently code-signed. A SmartScreen warning alone does not prove that a file is malicious, but users should never run copies obtained from unrelated websites.
-
