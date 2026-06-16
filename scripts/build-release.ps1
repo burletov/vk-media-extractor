@@ -10,6 +10,13 @@ $project = Join-Path $repoRoot "src\MediaTidy\MediaTidy.csproj"
 $smokeProject = Join-Path $repoRoot "tests\MediaTidy.SmokeTests\MediaTidy.SmokeTests.csproj"
 $artifacts = Join-Path $repoRoot "artifacts"
 $publishDirectory = Join-Path $artifacts "publish"
+$buildScratch = Join-Path $repoRoot ".release-build"
+$buildBin = [System.IO.Path]::GetFullPath((Join-Path $buildScratch "bin")) + [System.IO.Path]::DirectorySeparatorChar
+$buildObj = [System.IO.Path]::GetFullPath((Join-Path $buildScratch "obj")) + [System.IO.Path]::DirectorySeparatorChar
+$buildPathProperties = @(
+    "-p:BaseOutputPath=$buildBin",
+    "-p:BaseIntermediateOutputPath=$buildObj"
+)
 
 function Clear-DirectoryInsideRepo {
     param([string]$Path)
@@ -29,15 +36,12 @@ function Clear-DirectoryInsideRepo {
 
 & (Join-Path $PSScriptRoot "download-model.ps1")
 
-Clear-DirectoryInsideRepo (Join-Path $repoRoot "src\MediaTidy\bin")
-Clear-DirectoryInsideRepo (Join-Path $repoRoot "src\MediaTidy\obj")
-Clear-DirectoryInsideRepo (Join-Path $repoRoot "tests\MediaTidy.SmokeTests\bin")
-Clear-DirectoryInsideRepo (Join-Path $repoRoot "tests\MediaTidy.SmokeTests\obj")
+Clear-DirectoryInsideRepo $buildScratch
 
-dotnet restore $solution
+dotnet restore $solution @buildPathProperties
 if ($LASTEXITCODE -ne 0) { throw "dotnet restore failed." }
 
-dotnet run --project $smokeProject -c Release --no-restore
+dotnet run --project $smokeProject -c Release --no-restore @buildPathProperties
 if ($LASTEXITCODE -ne 0) { throw "Smoke test failed." }
 
 Remove-Item -LiteralPath $artifacts -Recurse -Force -ErrorAction SilentlyContinue
@@ -49,6 +53,7 @@ dotnet publish $project `
     --self-contained true `
     -p:PublishSingleFile=true `
     -p:IncludeNativeLibrariesForSelfExtract=true `
+    @buildPathProperties `
     -o $publishDirectory
 if ($LASTEXITCODE -ne 0) { throw "dotnet publish failed." }
 

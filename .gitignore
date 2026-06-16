@@ -1,6 +1,7 @@
 bin/
 obj/
 artifacts/
+.release-build/
 .vs/
 .vscode/
 *.user
@@ -11,4 +12,3 @@ artifacts/
 *.part
 test-photos/
 src/MediaTidy/Models/*.onnx
-
