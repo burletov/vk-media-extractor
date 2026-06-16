@@ -11,7 +11,28 @@ $smokeProject = Join-Path $repoRoot "tests\MediaTidy.SmokeTests\MediaTidy.SmokeT
 $artifacts = Join-Path $repoRoot "artifacts"
 $publishDirectory = Join-Path $artifacts "publish"
 
+function Clear-DirectoryInsideRepo {
+    param([string]$Path)
+
+    if (-not (Test-Path -LiteralPath $Path)) {
+        return
+    }
+
+    $repoRootResolved = [System.IO.Path]::GetFullPath($repoRoot)
+    $targetResolved = [System.IO.Path]::GetFullPath($Path)
+    if (-not $targetResolved.StartsWith($repoRootResolved, [System.StringComparison]::OrdinalIgnoreCase)) {
+        throw "Refusing to remove path outside repository: $targetResolved"
+    }
+
+    Remove-Item -LiteralPath $targetResolved -Recurse -Force
+}
+
 & (Join-Path $PSScriptRoot "download-model.ps1")
+
+Clear-DirectoryInsideRepo (Join-Path $repoRoot "src\MediaTidy\bin")
+Clear-DirectoryInsideRepo (Join-Path $repoRoot "src\MediaTidy\obj")
+Clear-DirectoryInsideRepo (Join-Path $repoRoot "tests\MediaTidy.SmokeTests\bin")
+Clear-DirectoryInsideRepo (Join-Path $repoRoot "tests\MediaTidy.SmokeTests\obj")
 
 dotnet restore $solution
 if ($LASTEXITCODE -ne 0) { throw "dotnet restore failed." }
@@ -44,4 +65,3 @@ Set-Content `
 Write-Host "Release artifacts:"
 Write-Host "  $releaseExecutable"
 Write-Host "  $(Join-Path $artifacts 'SHA256SUMS.txt')"
-

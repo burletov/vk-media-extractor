@@ -10,6 +10,7 @@
     <AssemblyName>MediaTidy</AssemblyName>
     <RootNamespace>MediaTidy</RootNamespace>
     <Version>2.6.2</Version>
+    <InformationalVersion>$(Version)</InformationalVersion>
     <AssemblyVersion>2.6.2.0</AssemblyVersion>
     <FileVersion>2.6.2.0</FileVersion>
     <AssemblyTitle>MediaTidy</AssemblyTitle>
