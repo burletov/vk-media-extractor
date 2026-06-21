@@ -1,12 +1,14 @@
 <p align="center">
-  <img src="docs/logo.png" width="180" alt="MediaTidy">
+  <img src="docs/logo.png" width="180" alt="Media Extractor for VK">
 </p>
 
-# MediaTidy
+# Media Extractor for VK
 
-**MediaTidy** is a Windows app for importing, deduplicating, and safely cleaning large photo and video archives.
+**Media Extractor for VK** is a Windows app for importing VK photos and videos, finding duplicates, and safely cleaning large media archives.
 
 Use it to import VK media, scan folders, find exact duplicates and similar images, compare files in a visual interface, and move unwanted items to a reversible quarantine.
+
+> Unofficial independent app. This project is not affiliated with VK, is not endorsed by VK, and does not use the VK logo.
 
 ## Highlights
 
@@ -16,15 +18,15 @@ Use it to import VK media, scan folders, find exact duplicates and similar image
 - **Handle large archives.** Multiple folders, optional merged media library, quick candidate selection, and report export before file operations.
 - **Dark theme included.** Not the main feature, but useful for long cleanup sessions.
 
-MediaTidy never deletes files automatically. You choose what to keep, quarantine, or restore.
+The app never deletes files automatically. You choose what to keep, quarantine, or restore.
 
 ## Download
 
-Download `MediaTidy.exe` from the [latest GitHub Release](https://github.com/burletov/MediaTidy/releases/latest). The app is portable and does not require installation.
+Download `MediaExtractorForVK.exe` from the [latest GitHub Release](https://github.com/burletov/vk-media-extractor/releases/latest). The app is portable and does not require installation.
 
-`SHA256SUMS.txt` is optional. It is provided only for integrity checks, so you can verify that `MediaTidy.exe` was not corrupted during download and matches the release file.
+`SHA256SUMS.txt` is optional. It is provided only for integrity checks, so you can verify that `MediaExtractorForVK.exe` was not corrupted during download and matches the release file.
 
-The executable is not code-signed yet and may trigger Windows SmartScreen. Download it only from `burletov/MediaTidy` and verify the SHA-256 checksum against `SHA256SUMS.txt` if needed.
+The executable is not code-signed yet and may trigger Windows SmartScreen. Download it only from `burletov/vk-media-extractor` and verify the SHA-256 checksum against `SHA256SUMS.txt` if needed.
 
 ## VK import
 
@@ -35,7 +37,7 @@ The executable is not code-signed yet and may trigger Windows SmartScreen. Downl
 5. Optionally enable GIF import and file size limits.
 6. Start import. If interrupted, the next run resumes from the saved checkpoint.
 
-MediaTidy is unofficial and is not affiliated with VK. Users are responsible for following VK rules and respecting rights to downloaded materials. The optional token helper opens the third-party VKHost website; review its address and requested permissions carefully.
+Users are responsible for following VK rules and respecting rights to downloaded materials. The optional token helper opens the third-party VKHost website; review its address and requested permissions carefully.
 
 ## Requirements
 
@@ -52,8 +54,8 @@ Install the [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0), then
 
 ```powershell
 powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\download-model.ps1
-dotnet restore .\MediaTidy.sln
-dotnet run --project .\tests\MediaTidy.SmokeTests\MediaTidy.SmokeTests.csproj -c Release
+dotnet restore .\MediaExtractorForVK.sln
+dotnet run --project .\tests\MediaExtractorForVK.SmokeTests\MediaExtractorForVK.SmokeTests.csproj -c Release
 powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\build-release.ps1
 ```
 
@@ -61,7 +63,7 @@ The self-contained executable and checksum will be written to `artifacts`.
 
 ## Support the author
 
-MediaTidy was created by **Igor Burletov**. Donations are optional:
+Media Extractor for VK was created by **Igor Burletov**. Donations are optional:
 
 - BTC: `115M2wYM1UJ5RDQi2BBsc41R3XaTNxyLjp`
 - ETH (ERC-20): `0xc3fc88bb6b415a1822b7989df2865795f5351c97`

@@ -26,9 +26,9 @@ jobs:
       - name: Publish GitHub Release
         uses: softprops/action-gh-release@v2
         with:
-          name: MediaTidy ${{ github.ref_name }}
+          name: Media Extractor for VK ${{ github.ref_name }}
           body_path: CHANGELOG.md
           generate_release_notes: true
           files: |
-            artifacts/MediaTidy.exe
+            artifacts/MediaExtractorForVK.exe
             artifacts/SHA256SUMS.txt

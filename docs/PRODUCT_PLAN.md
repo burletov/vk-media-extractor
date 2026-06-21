@@ -1,10 +1,10 @@
-# MediaTidy: продуктовый и технический план
+# Media Extractor for VK: продуктовый и технический план
 
 Дата оценки: 15 июня 2026 года.
 
 ## Название
 
-Рабочее название: **MediaTidy**.
+Рабочее название: **Media Extractor for VK**.
 
 Оно описывает основную ценность продукта — привести локальную медиатеку в порядок — и не ограничивает приложение одной социальной сетью. Импорт из VK лучше оставить названием функции: «Импорт из VK».
 
@@ -18,7 +18,7 @@
 
 ## Позиционирование
 
-MediaTidy — локальный менеджер фото и видео:
+Media Extractor for VK — локальный менеджер фото и видео:
 
 - ищет точные и визуально похожие файлы;
 - помогает сравнить экземпляры и безопасно убрать лишнее в карантин;
@@ -77,9 +77,9 @@ Pro:
 
 Структура GitHub:
 
-- `MediaTidy.Core` — сканирование, хеши, модели, операции с файлами;
-- `MediaTidy.Desktop` — интерфейс;
-- `MediaTidy.Platform.*` — OCR, превью и системная интеграция;
+- `MediaExtractorForVK.Core` — сканирование, хеши, модели, операции с файлами;
+- `MediaExtractorForVK.Desktop` — интерфейс;
+- `MediaExtractorForVK.Platform.*` — OCR, превью и системная интеграция;
 - `docs`, `THIRD_PARTY_NOTICES`, политика приватности и модель угроз;
 - GitHub Actions для тестов, сборок и подписанных релизов.
 
@@ -109,7 +109,7 @@ Pro:
 
 Этапы:
 
-1. Выделить `MediaTidy.Core` под `net8.0`: поиск файлов, хеши, группировка, ONNX, карантин, импорт VK.
+1. Выделить `MediaExtractorForVK.Core` под `net8.0`: поиск файлов, хеши, группировка, ONNX, карантин, импорт VK.
 2. Ввести интерфейсы `IOcrService`, `IThumbnailService`, `IFileNavigator`, `IVideoMetadataService`.
 3. Windows: Windows OCR и Shell thumbnails.
 4. Linux/macOS: Tesseract или PaddleOCR, FFmpeg/FFprobe и SkiaSharp.

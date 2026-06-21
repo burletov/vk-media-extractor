@@ -1,0 +1,54 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows10.0.19041.0</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <UseSystemDrawing>true</UseSystemDrawing>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <AssemblyName>MediaExtractorForVK</AssemblyName>
+    <RootNamespace>MediaExtractorForVK</RootNamespace>
+    <Version>2.7.0</Version>
+    <InformationalVersion>$(Version)</InformationalVersion>
+    <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
+    <AssemblyVersion>2.7.0.0</AssemblyVersion>
+    <FileVersion>2.7.0.0</FileVersion>
+    <AssemblyTitle>Media Extractor for VK</AssemblyTitle>
+    <Company>Igor Burletov</Company>
+    <Product>Media Extractor for VK</Product>
+    <Description>Unofficial Windows app for importing VK media and finding duplicate photo/video files</Description>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <ApplicationIcon>Assets\media-extractor-for-vk.ico</ApplicationIcon>
+    <PublishSingleFile>true</PublishSingleFile>
+    <IncludeAllContentForSelfExtract>true</IncludeAllContentForSelfExtract>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.ML.OnnxRuntime" Version="1.26.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Models\clip-vision-int8.onnx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Models\clip-class-embeddings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Models\clip-b16-class-embeddings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Models\clip-l14-class-embeddings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\media-extractor-for-vk-logo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <InternalsVisibleTo Include="MediaExtractorForVK.SmokeTests" />
+  </ItemGroup>
+  <Target Name="EnsureBundledRecognitionModel" BeforeTargets="PrepareForBuild">
+    <Error
+      Condition="!Exists('Models\clip-vision-int8.onnx')"
+      Text="Bundled recognition model is missing. Run scripts\download-model.ps1 from the repository root." />
+  </Target>
+</Project>

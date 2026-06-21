@@ -9,7 +9,7 @@ Bug reports and focused pull requests are welcome.
 
 ```powershell
 powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\download-model.ps1
-dotnet run --project .\tests\MediaTidy.SmokeTests\MediaTidy.SmokeTests.csproj -c Release
+dotnet run --project .\tests\MediaExtractorForVK.SmokeTests\MediaExtractorForVK.SmokeTests.csproj -c Release
 ```
 
-Recognition changes should include measurable validation. A larger model is not sufficient evidence of better classification for MediaTidy's fixed categories.
+Recognition changes should include measurable validation. A larger model is not sufficient evidence of better classification for the app's fixed categories.

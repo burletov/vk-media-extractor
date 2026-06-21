@@ -1,6 +1,6 @@
 # Third-Party Notices
 
-MediaTidy uses third-party software and model files. Their licenses and model cards apply in addition to MediaTidy's MIT License.
+Media Extractor for VK uses third-party software and model files. Their licenses and model cards apply in addition to this project's MIT License.
 
 ## ONNX Runtime
 
@@ -14,7 +14,7 @@ MediaTidy uses third-party software and model files. Their licenses and model ca
 - License for the CLIP repository: MIT
 - Model card: [openai/clip-vit-base-patch32](https://huggingface.co/openai/clip-vit-base-patch32)
 
-The CLIP model card describes important limitations, biases, and the need for task-specific evaluation. MediaTidy therefore presents recognition only as probabilistic hints and does not automatically delete or move files based on a model result.
+The CLIP model card describes important limitations, biases, and the need for task-specific evaluation. Media Extractor for VK therefore presents recognition only as probabilistic hints and does not automatically delete or move files based on a model result.
 
 ## ONNX model distributions
 
@@ -28,5 +28,4 @@ The repository does not store ONNX weights in Git history. The build script down
 
 ## VK
 
-VK names, APIs, and services belong to their respective owners. MediaTidy is unofficial, is not endorsed by VK, and requires users to supply their own credentials and comply with applicable terms.
-
+VK names, APIs, and services belong to their respective owners. Media Extractor for VK is unofficial, is not endorsed by VK, and requires users to supply their own credentials and comply with applicable terms.

@@ -11,4 +11,4 @@ artifacts/
 *.tmp
 *.part
 test-photos/
-src/MediaTidy/Models/*.onnx
+src/MediaExtractorForVK/Models/*.onnx

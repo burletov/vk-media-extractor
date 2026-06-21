@@ -5,7 +5,7 @@ param(
 $ErrorActionPreference = "Stop"
 
 $repoRoot = Split-Path -Parent $PSScriptRoot
-$modelDirectory = Join-Path $repoRoot "src\MediaTidy\Models"
+$modelDirectory = Join-Path $repoRoot "src\MediaExtractorForVK\Models"
 $modelPath = Join-Path $modelDirectory "clip-vision-int8.onnx"
 $temporaryPath = "$modelPath.part"
 $modelUri = "https://huggingface.co/Xenova/clip-vit-base-patch32/resolve/main/onnx/vision_model_quantized.onnx"

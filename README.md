@@ -1,17 +1,19 @@
 <p align="center">
-  <img src="docs/logo.png" width="180" alt="MediaTidy">
+  <img src="docs/logo.png" width="180" alt="Media Extractor for VK">
 </p>
 
-# MediaTidy
+# Media Extractor for VK
 
-[![Release](https://img.shields.io/github/v/release/burletov/MediaTidy)](https://github.com/burletov/MediaTidy/releases/latest)
-[![CI](https://github.com/burletov/MediaTidy/actions/workflows/ci.yml/badge.svg)](https://github.com/burletov/MediaTidy/actions/workflows/ci.yml)
-[![License](https://img.shields.io/github/license/burletov/MediaTidy)](LICENSE)
-[![Windows](https://img.shields.io/badge/Windows-10%2F11-0078D4)](https://github.com/burletov/MediaTidy/releases/latest)
+[![Release](https://img.shields.io/github/v/release/burletov/vk-media-extractor)](https://github.com/burletov/vk-media-extractor/releases/latest)
+[![CI](https://github.com/burletov/vk-media-extractor/actions/workflows/ci.yml/badge.svg)](https://github.com/burletov/vk-media-extractor/actions/workflows/ci.yml)
+[![License](https://img.shields.io/github/license/burletov/vk-media-extractor)](LICENSE)
+[![Windows](https://img.shields.io/badge/Windows-10%2F11-0078D4)](https://github.com/burletov/vk-media-extractor/releases/latest)
 
-**MediaTidy** — Windows-приложение для импорта, поиска дубликатов и безопасной разборки больших архивов фото и видео.
+**Media Extractor for VK** — Windows-приложение для импорта фото и видео из VK, поиска дубликатов и безопасной разборки больших медиаархивов.
 
 Один сценарий: импортируете медиа из VK, сканируете папки, быстро находите дубликаты и похожие изображения, сравниваете файлы в интерфейсе и переносите лишнее в карантин без безвозвратного удаления.
+
+> Неофициальное независимое приложение. Проект не связан с VK, не одобрен VK и не использует логотип VK.
 
 [English version](README.en.md)
 
@@ -23,20 +25,20 @@
 - **Поддержка больших архивов.** Несколько папок, объединение в общую медиатеку, быстрый выбор кандидатов и экспорт отчёта до любых файловых операций.
 - **Тёмная тема.** Не главная причина ставить приложение, но приятно пользоваться вечером.
 
-MediaTidy не удаляет файлы автоматически. Пользователь сам решает, что отправить в карантин или оставить.
+Приложение не удаляет файлы автоматически. Пользователь сам решает, что отправить в карантин или оставить.
 
 ## Скачать
 
-1. Откройте [последний релиз](https://github.com/burletov/MediaTidy/releases/latest).
-2. Скачайте `MediaTidy.exe`.
-3. Запустите `MediaTidy.exe`. Установка не требуется.
+1. Откройте [последний релиз](https://github.com/burletov/vk-media-extractor/releases/latest).
+2. Скачайте `MediaExtractorForVK.exe`.
+3. Запустите `MediaExtractorForVK.exe`. Установка не требуется.
 
-`SHA256SUMS.txt` скачивать необязательно. Он нужен только для проверки целостности файла: можно убедиться, что `MediaTidy.exe` не повредился при загрузке и совпадает с файлом из релиза.
+`SHA256SUMS.txt` скачивать необязательно. Он нужен только для проверки целостности файла: можно убедиться, что `MediaExtractorForVK.exe` не повредился при загрузке и совпадает с файлом из релиза.
 
-Windows SmartScreen может показать предупреждение, потому что приложение пока не подписано коммерческим сертификатом. Проверяйте, что файл скачан из `burletov/MediaTidy`, и при необходимости сверяйте SHA-256 со строкой из `SHA256SUMS.txt`:
+Windows SmartScreen может показать предупреждение, потому что приложение пока не подписано коммерческим сертификатом. Проверяйте, что файл скачан из `burletov/vk-media-extractor`, и при необходимости сверяйте SHA-256 со строкой из `SHA256SUMS.txt`:
 
 ```powershell
-Get-FileHash .\MediaTidy.exe -Algorithm SHA256
+Get-FileHash .\MediaExtractorForVK.exe -Algorithm SHA256
 ```
 
 ## Быстрый старт
@@ -56,9 +58,9 @@ Get-FileHash .\MediaTidy.exe -Algorithm SHA256
 5. При необходимости включите ограничение размера файла.
 6. Запустите импорт. Если процесс остановить, следующий запуск продолжит работу с сохранённой контрольной точки.
 
-Полная выгрузка большого аккаунта может занять десятки часов. Не удаляйте служебные файлы `.mediatidy-vk-*` и незавершённые `.part`, если планируете продолжить импорт.
+Полная выгрузка большого аккаунта может занять десятки часов. Не удаляйте служебные файлы `.MediaExtractorForVK_VK_Import_*.json` и незавершённые `.part`, если планируете продолжить импорт.
 
-MediaTidy является неофициальным приложением и не связано с VK. Пользователь сам отвечает за соблюдение правил VK и прав на загружаемые материалы. Кнопка получения токена открывает сторонний сервис VKHost; проверяйте адрес сайта и разрешения токена самостоятельно.
+Пользователь сам отвечает за соблюдение правил VK и прав на загружаемые материалы. Кнопка получения токена открывает сторонний сервис VKHost; проверяйте адрес сайта и разрешения токена самостоятельно.
 
 ## Возможности
 
@@ -91,7 +93,7 @@ MediaTidy является неофициальным приложением и 
 ## Конфиденциальность
 
 - выбранные фото и видео не отправляются разработчику;
-- пути, результаты анализа и токен VK не отправляются на сервер MediaTidy;
+- пути, результаты анализа и токен VK не отправляются на сервер проекта;
 - токен VK используется только для запросов к API VK и не сохраняется приложением;
 - телеметрия и рекламные SDK отсутствуют.
 
@@ -102,11 +104,11 @@ MediaTidy является неофициальным приложением и 
 Потребуются Windows 10/11, [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0) и PowerShell.
 
 ```powershell
-git clone https://github.com/burletov/MediaTidy.git
-cd MediaTidy
+git clone https://github.com/burletov/vk-media-extractor.git
+cd vk-media-extractor
 powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\download-model.ps1
-dotnet restore .\MediaTidy.sln
-dotnet run --project .\tests\MediaTidy.SmokeTests\MediaTidy.SmokeTests.csproj -c Release
+dotnet restore .\MediaExtractorForVK.sln
+dotnet run --project .\tests\MediaExtractorForVK.SmokeTests\MediaExtractorForVK.SmokeTests.csproj -c Release
 powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\build-release.ps1
 ```
 
@@ -114,19 +116,19 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\build-release.ps1
 
 ## Структура проекта
 
-- `src/MediaTidy` — WinForms-приложение;
-- `tests/MediaTidy.SmokeTests` — функциональная smoke-проверка;
+- `src/MediaExtractorForVK` — WinForms-приложение;
+- `tests/MediaExtractorForVK.SmokeTests` — функциональная smoke-проверка;
 - `scripts` — загрузка модели и воспроизводимая сборка;
 - `docs` — логотип и продуктовые материалы;
 - `.github/workflows` — CI и публикация релизов по тегам `v*`.
 
 ## Релизы
 
-Готовые пользовательские сборки публикуются в [GitHub Releases](https://github.com/burletov/MediaTidy/releases). Основной файл для скачивания — `MediaTidy.exe`; `SHA256SUMS.txt` прикладывается для необязательной проверки целостности. История изменений: [CHANGELOG.md](CHANGELOG.md).
+Готовые пользовательские сборки публикуются в [GitHub Releases](https://github.com/burletov/vk-media-extractor/releases). Основной файл для скачивания — `MediaExtractorForVK.exe`; `SHA256SUMS.txt` прикладывается для необязательной проверки целостности. История изменений: [CHANGELOG.md](CHANGELOG.md).
 
 ## Благодарность автору
 
-Если MediaTidy сэкономил вам время и вы хотите поблагодарить автора за работу, проект можно поддержать:
+Если Media Extractor for VK сэкономил вам время и вы хотите поблагодарить автора за работу, проект можно поддержать:
 
 | Валюта и сеть | Адрес |
 | --- | --- |

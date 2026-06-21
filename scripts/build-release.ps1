@@ -5,9 +5,9 @@ param(
 $ErrorActionPreference = "Stop"
 
 $repoRoot = Split-Path -Parent $PSScriptRoot
-$solution = Join-Path $repoRoot "MediaTidy.sln"
-$project = Join-Path $repoRoot "src\MediaTidy\MediaTidy.csproj"
-$smokeProject = Join-Path $repoRoot "tests\MediaTidy.SmokeTests\MediaTidy.SmokeTests.csproj"
+$solution = Join-Path $repoRoot "MediaExtractorForVK.sln"
+$project = Join-Path $repoRoot "src\MediaExtractorForVK\MediaExtractorForVK.csproj"
+$smokeProject = Join-Path $repoRoot "tests\MediaExtractorForVK.SmokeTests\MediaExtractorForVK.SmokeTests.csproj"
 $artifacts = Join-Path $repoRoot "artifacts"
 $publishDirectory = Join-Path $artifacts "publish"
 $buildScratch = Join-Path $repoRoot ".release-build"
@@ -57,14 +57,14 @@ dotnet publish $project `
     -o $publishDirectory
 if ($LASTEXITCODE -ne 0) { throw "dotnet publish failed." }
 
-$executable = Join-Path $publishDirectory "MediaTidy.exe"
-$releaseExecutable = Join-Path $artifacts "MediaTidy.exe"
+$executable = Join-Path $publishDirectory "MediaExtractorForVK.exe"
+$releaseExecutable = Join-Path $artifacts "MediaExtractorForVK.exe"
 Copy-Item -LiteralPath $executable -Destination $releaseExecutable -Force
 
 $hash = (Get-FileHash -LiteralPath $releaseExecutable -Algorithm SHA256).Hash.ToLowerInvariant()
 Set-Content `
     -LiteralPath (Join-Path $artifacts "SHA256SUMS.txt") `
-    -Value "$hash  MediaTidy.exe" `
+    -Value "$hash  MediaExtractorForVK.exe" `
     -Encoding ascii
 
 Write-Host "Release artifacts:"
